@@ -4,6 +4,7 @@ var io = require('socket.io')(http)
 
 app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
+  io.emit('message', { message: 'ofamspofmasmfpas' })
 })
 
 io.on('connection', function(socket) {
