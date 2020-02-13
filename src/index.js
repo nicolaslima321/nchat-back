@@ -4,11 +4,15 @@ var io = require('socket.io')(http)
 
 app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
-  io.emit('message', { message: 'ofamspofmasmfpas' })
+  io.emit('message-received', { message: 'Lorem Ipsum' })
 })
 
 io.on('connection', function(socket) {
   console.log('a user connected')
+})
+
+io.on('message-sent', function(socket) {
+  console.log('A message was sent')
 })
 
 http.listen(3333, function() {
