@@ -17,12 +17,6 @@ server.listen(3333, function() {
 
 /* app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
-  const user = new Users()
-  user.name = 'Lorem'
-  user.email = 'Lorem'
-  user.password = 'Lorem'
-  user.celphone = 'Lorem'
-  user.save()
   var userData = user.find(1)
   console.log(userData)
   io.emit('message-received', { message: 'Lorem Ipsum' })

@@ -1,10 +1,12 @@
 import UserController from './Controllers/UserController'
-const { Router } = require('express')
+import { Router } from 'express'
 
 const userController = new UserController()
 
 const routes = Router()
 
-routes.get('/test', userController.index)
+routes.get('/user', userController.index)
+
+routes.get('/user/store', userController.store)
 
 export default routes
