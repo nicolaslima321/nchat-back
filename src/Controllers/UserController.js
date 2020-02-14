@@ -6,7 +6,7 @@ class UserController {
     return response.json({ message: 'It Works!' })
   }
 
-  async store (request, response) {
+  store (request, response) {
     user.name = 'Lorem Ipsum Dolor Sit Amet'
     user.email = 'Lorem@ipsum.dolor'
     user.password = 'Lorem'
