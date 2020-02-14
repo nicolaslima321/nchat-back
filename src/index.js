@@ -1,10 +1,21 @@
-import Users from './Models/Users.js'
+import routes from './routes.js'
 
-var app = require('express')()
-var http = require('http').createServer(app)
-var io = require('socket.io')(http)
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const server = require('http').Server(app)
 
-app.get('/', function(request, response) {
+app.use(cors())
+app.use(express.json())
+app.use(routes)
+
+server.listen(3333, function() {
+  console.log('listening on *:3333')
+}) 
+
+// var io = require('socket.io')(http)
+
+/* app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
   const user = new Users()
   user.name = 'Lorem'
@@ -24,7 +35,4 @@ io.on('connection', function(socket) {
 io.on('message-sent', function(socket) {
   console.log('A message was sent')
 })
-
-http.listen(3333, function() {
-  console.log('listening on *:3333')
-})
+*/
