@@ -1,10 +1,17 @@
+import Users from './Models/Users.js'
+
 var app = require('express')()
 var http = require('http').createServer(app)
 var io = require('socket.io')(http)
 
 app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
-  io.emit('message-received', { message: 'Lorem Ipsum' })
+  Users.name = 'Lorem'
+  Users.email = 'Lorem'
+  Users.password = 'Lorem'
+  Users.celphone = 'Lorem'
+  Users.save()
+  io.emit('message-received', { message: 'Lorem Ipsum', user: Users.get(1) })
 })
 
 io.on('connection', function(socket) {
