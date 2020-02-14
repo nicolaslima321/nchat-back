@@ -1,12 +1,12 @@
 import Database from '../Database/database.js'
 
 export default class Users {
-    save() {
-        console.log(`Logging this content ${this}`)
+    save () {
+        console.log(`Logging this content ${JSON.stringify(this)}`)
         return Database.friends.put(this)
     }
 
-    find(id) {
+    find (id) {
         return Database.friends.get(id)
     }
 }

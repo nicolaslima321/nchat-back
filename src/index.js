@@ -6,12 +6,15 @@ var io = require('socket.io')(http)
 
 app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
-  Users.save()
-  Users.name = 'Lorem'
-  Users.email = 'Lorem'
-  Users.password = 'Lorem'
-  Users.celphone = 'Lorem'
-  io.emit('message-received', { message: 'Lorem Ipsum', user: Users.get(1) })
+  const user = new Users()
+  user.name = 'Lorem'
+  user.email = 'Lorem'
+  user.password = 'Lorem'
+  user.celphone = 'Lorem'
+  user.save()
+  var userData = user.find(1)
+  console.log(userData)
+  io.emit('message-received', { message: 'Lorem Ipsum' })
 })
 
 io.on('connection', function(socket) {
