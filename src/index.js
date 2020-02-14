@@ -6,11 +6,11 @@ var io = require('socket.io')(http)
 
 app.get('/', function(request, response) {
   response.send('<h1>Hello coders</h1>')
+  Users.save()
   Users.name = 'Lorem'
   Users.email = 'Lorem'
   Users.password = 'Lorem'
   Users.celphone = 'Lorem'
-  Users.save()
   io.emit('message-received', { message: 'Lorem Ipsum', user: Users.get(1) })
 })
 
