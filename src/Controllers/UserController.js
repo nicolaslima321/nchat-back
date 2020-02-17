@@ -11,7 +11,6 @@ class UserController {
     user.email = 'Lorem@ipsum.dolor'
     user.password = 'Lorem'
     user.celphone = '(00) 0000 0000'
-
     user.save()
     var storedUser = user.find(1)
     return response.json({ user: storedUser })
