@@ -9,11 +9,10 @@ export default class Users {
   async find (id) {
     var user = await Database.users.get(id)
       .then((found) => {
-        console.log('Its working dude', found)
         return found
       })
       .catch((error) => {
-        console.log(' .-. ', error)
+        console.log('An error ocurred while searching for this user ID', error)
       })
     return user
   }

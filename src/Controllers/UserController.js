@@ -6,14 +6,26 @@ class UserController {
     return response.json({ message: 'It Works!' })
   }
 
+  get (request, response) {
+    var userId = request.params.userId
+    return response.json({ user: user.find(userId) })
+  }
+
   store (request, response) {
-    user.name = 'Lorem Ipsum Dolor Sit Amet'
-    user.email = 'Lorem@ipsum.dolor'
-    user.password = 'Lorem'
-    user.celphone = '(00) 0000 0000'
+    var data = request.body
+
+    user.name = data.name
+    user.email = data.email
+    user.password = data.password
+    user.celphone = data.celphone
+
     user.save()
-    var storedUser = user.find(1)
-    return response.json({ user: storedUser })
+      .then(() => {
+        return response.json({ message: 'User successfully saved', user: storedUser })
+      })
+      .catch((error) => {
+        return response.json({ message: 'User could not be saved', error: error })
+      })
   }
 }
 

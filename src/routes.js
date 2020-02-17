@@ -9,4 +9,6 @@ routes.get('/user', userController.index)
 
 routes.get('/user/store', userController.store)
 
+routes.get('/user/:userId', userController.get)
+
 export default routes
