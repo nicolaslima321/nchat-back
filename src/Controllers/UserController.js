@@ -13,14 +13,8 @@ class UserController {
     user.celphone = '(00) 0000 0000'
 
     user.save()
-      .then((data) => {
-        console.log('User successfully saved!')
-        return response.json({ message: 'User successfully saved!', content: JSON.stringify(data) })
-      })
-      .catch((error) => {
-        console.log('User could not be saved!')
-        return response.json({ error: 'User could not be saved!', error: JSON.stringify(error) })
-      })
+    var storedUser = user.find(1)
+    return response.json({ user: storedUser })
   }
 }
 
